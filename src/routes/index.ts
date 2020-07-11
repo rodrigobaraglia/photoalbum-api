@@ -5,7 +5,7 @@ import multer from "../libs/multer";
 import {
   createPhotoHandler,
   getPhotosHandler,
-} from "../controllers/photo.controller";
+} from "../controllers/specific/photo.controller";
 
 const router = Router();
 

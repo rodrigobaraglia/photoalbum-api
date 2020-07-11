@@ -1,2 +1,2 @@
-export { handleTestRoute } from "./testRoute.controller";
-export { createPhotoHandler, getPhotosHandler } from "./photo.controller";
+export { handleTestRoute } from "./specific/testRoute.controller";
+export { createPhotoHandler, getPhotosHandler } from "./specific/photo.controller";
