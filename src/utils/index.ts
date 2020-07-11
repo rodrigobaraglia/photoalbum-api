@@ -1,6 +1,4 @@
-//Utility functions for functional programmint
-
-
+//Utility functions 
 
 export const handleAsync = <F extends Function, T extends any[], Z>(fn: F) => async (
   ...args: T

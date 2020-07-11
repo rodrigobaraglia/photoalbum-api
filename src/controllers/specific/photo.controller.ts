@@ -1,4 +1,4 @@
-import { postHandler, getHandler } from "../generic/request.handlers";
+import { postHandler, getHandler } from "../generic/quialifiedHandlers";
 import { message } from "../../services";
 import { Photo, createPhoto } from "../../models/Photo";
 

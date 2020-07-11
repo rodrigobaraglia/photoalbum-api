@@ -1,5 +1,5 @@
 import { Document } from "mongoose";
-import { PHOTO_SAVED, SHOWING_PHOTOS } from "./constants";
+import { strings } from "../assets";
 
 function message(message: string) {
   return function <D extends Document>(data: D) {
@@ -7,5 +7,5 @@ function message(message: string) {
   };
 }
 
-export const confirmPhotoSaved = message(PHOTO_SAVED);
-export const confirmShowingPhotos = message(SHOWING_PHOTOS);
+export const confirmPhotoSaved = message(strings.PHOTO_SAVED);
+export const confirmShowingPhotos = message(strings.SHOWING_PHOTOS);
