@@ -15,7 +15,6 @@ export function isDefined<T>(o: T) {
   return o !== undefined;
 }
 
-
 export const compose = <T extends any[], U extends any[], Z>(
   ...fns: T
 ): ((...args: U) => Z) => (...args: U): Z =>
@@ -27,7 +26,3 @@ export const pipe = <T extends any[], U extends any[], Z>(
   fns.reduce((res, fn) => fn(res), args);
 
 
-  //Concrete's Pareto.js Compose (type declaration sucks):
-  // export default function composee(...fns: Function[]): Function {
-  //   return fns.reduce((f, g) => (...args: any[]) => f(g(...args)));
-  // }
