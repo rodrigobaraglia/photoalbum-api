@@ -1,4 +1,4 @@
-import { Schema, model, Model, Document } from "mongoose";
+import { Schema, model} from "mongoose";
 import { IPhoto } from "./declarations";
 import { Request } from "express";
 
