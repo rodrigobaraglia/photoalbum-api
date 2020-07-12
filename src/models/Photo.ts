@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Model, Document } from "mongoose";
 import { IPhoto } from "./declarations";
 import { Request } from "express";
 
@@ -9,7 +9,6 @@ const photoSchema = new Schema({
 });
 
 export const Photo = model<IPhoto>("Photo", photoSchema);
-
 
 export function createPhoto(data: Request): IPhoto {
   const { title, description } = data.body;
@@ -29,4 +28,6 @@ export async function getPhoto(data: any = {}): Promise<IPhoto | Array<IPhoto>> 
   console.log(payload)
   return payload
 }
+
+
 

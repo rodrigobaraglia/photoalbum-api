@@ -1,6 +1,7 @@
 import { Document } from "mongoose";
 import { strings } from "../assets";
 
+
 function message(message: string) {
   return function <D extends Document>(data: D) {
     return { message, ...data };
