@@ -23,11 +23,7 @@ export function createPhoto(data: Request): IPhoto {
   return photo;
 };
 
-export async function getPhoto(data: any = {}): Promise<IPhoto | Array<IPhoto>> {
-  const payload = await Photo.find(data)
-  console.log(payload)
-  return payload
-}
+
 
 
 

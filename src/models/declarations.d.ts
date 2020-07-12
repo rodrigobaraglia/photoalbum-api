@@ -1,6 +1,5 @@
 import { Document } from "mongoose";
-import {Request } from "express";
-
+import { Request } from "express";
 
 export interface IPhoto extends Document {
   title: string;
@@ -11,9 +10,8 @@ export interface IPhoto extends Document {
 export interface IUser extends Document {
   name: string;
   album: IAlbum;
-  posts: Array<IComment>
+  posts: Array<IComment>;
 }
-
 
 export interface IAlbum extends Document {
   user: IUser;
@@ -25,5 +23,5 @@ export interface IComment extends Document {
   text: string;
   date: date;
   likes: number;
-  comments: Array<IComment>
+  comments: Array<IComment>;
 }

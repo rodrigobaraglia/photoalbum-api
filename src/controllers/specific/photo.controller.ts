@@ -1,13 +1,13 @@
-import {IRequestHandler} from "../generic/declarations";
-import { postHandler, getHandler } from "../generic/quialifiedHandlers";
+import { postHandler, getHandler, IRequestHandler } from "../generic";
 import { message } from "../../services";
-import { Photo, createPhoto } from "../../models/Photo";
-
+import {photo}  from "../../models";
 
 export const createPhotoHandler: IRequestHandler = postHandler(
-  createPhoto,
+  photo.createPhoto,
   message.confirmPhotoSaved
 );
 
-export const getPhotosHandler: IRequestHandler = getHandler(Photo, message.confirmShowingPhotos);
-
+export const getPhotosHandler: IRequestHandler = getHandler(
+  photo.Photo,
+  message.confirmShowingPhotos
+);

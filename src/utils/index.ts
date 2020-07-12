@@ -1,5 +1,7 @@
 //Utility functions
 
+//Functions are named to keep track of them in error messages. Underscore is used to denote inner functions. 
+
 export function handleAsync<F extends Function, T extends any[], Z>(fn: F) {
   return async function _handleAsync(...args: T): Promise<Z> {
     try {
