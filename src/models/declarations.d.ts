@@ -2,13 +2,6 @@ import { Document } from "mongoose";
 import {Request } from "express";
 
 
-export type Entity = IPhoto | IUser | IAlbum | IComment
-
-export type Factory = ((data:Request) => Entity) | Model<IPhoto, {}>
-
-interface IFactory {
-  (data:Request):Entity
-}
 export interface IPhoto extends Document {
   title: string;
   description: string;
