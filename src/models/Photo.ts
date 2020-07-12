@@ -11,8 +11,10 @@ const photoSchema = new Schema({
 export const Photo = model<IPhoto>("Photo", photoSchema);
 
 export function createPhoto(data: Request): IPhoto {
-  const { title, description } = data.body;
-  const { path } = data.file;
+  const {
+    body: { title, description },
+    file: { path },
+  } = data;
 
   const photo = new Photo({
     title,
@@ -21,9 +23,10 @@ export function createPhoto(data: Request): IPhoto {
   });
 
   return photo;
-};
+}
 
-
-
-
-
+// export async function getPhoto(data: any = {}): Promise<IPhoto | Array<IPhoto>> {
+//   const payload = await Photo.find(data)
+//   console.log(payload)
+//   return payload
+// }
