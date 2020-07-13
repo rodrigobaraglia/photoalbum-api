@@ -1,12 +1,14 @@
 import { Schema, model} from "mongoose";
-import { IPhoto } from "./declarations";
+import { IPhoto, IAlbum } from "./declarations";
 import { Request } from "express";
 
-const photoSchema = new Schema({
+export const photoSchema = new Schema({
   title: String,
   description: String,
   path: String,
 });
+
+
 
 export const Photo = model<IPhoto>("Photo", photoSchema);
 

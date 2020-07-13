@@ -14,12 +14,12 @@ export interface IUser extends Document {
 }
 
 export interface IAlbum extends Document {
-  user: IUser;
-  [key: string]: IPhoto;
+  user: IUser['name'];
+  photos: IPhoto[];
 }
 
 export interface IComment extends Document {
-  authot: string;
+  author: string;
   text: string;
   date: date;
   likes: number;

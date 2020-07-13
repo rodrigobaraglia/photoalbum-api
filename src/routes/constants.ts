@@ -1,4 +1,11 @@
 export const TEST = "/";
-const BY_ID = "/:id"
+const BY_ID = "/:id";
+export const USERS = "/users";
 export const PHOTOS = "/photos";
+export const POSTS = "/posts";
+export const USER_BY_ID = USERS + BY_ID;
+export const USER_PHOTOS = USER_BY_ID + PHOTOS;
 export const PHOTO_BY_ID = PHOTOS + BY_ID;
+export const USER_PHOTO_BY_ID = USER_PHOTOS + BY_ID;
+export const USER_POSTS = USER_BY_ID + POSTS;
+export const USER_POST_BY_ID = USER_POSTS + BY_ID;

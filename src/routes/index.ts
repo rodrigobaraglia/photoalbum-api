@@ -1,19 +1,24 @@
 import { Router, Request, Response } from "express";
-import { TEST, PHOTOS, PHOTO_BY_ID } from "./constants";
+import * as path from "./constants";
 import { handleTestRoute } from "../controllers";
 import multer from "../libs/multer";
-import {
-  createPhotoHandler,
-  getPhotosHandler,
-} from "../controllers/specific/photo.controller";
+import * as controller from "../controllers";
 
 const router = Router();
 
-router.route(TEST).get(handleTestRoute);
+router.route(path.TEST).get(handleTestRoute);
 router
-  .route(PHOTOS)
-  .get(getPhotosHandler)
-  .post(multer.single("image"), createPhotoHandler);
-router.route(PHOTO_BY_ID).get(getPhotosHandler)
+  .route(path.PHOTOS)
+  .get(controller.getPhotosHandler)
+  .post(multer.single("image"), controller.createPhotoHandler);
+router.route(path.PHOTO_BY_ID).get(controller.getPhotosHandler);
+router
+  .route(path.USERS)
+  .get(controller.getUsersHandler)
+  .post(controller.createUserHandler);
+router.route(path.USER_PHOTOS);
+router.route(path.USER_PHOTO_BY_ID);
+router.route(path.USER_POSTS);
+router.route(path.USER_POST_BY_ID);
 
 export default router;
