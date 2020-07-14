@@ -12,7 +12,9 @@ export const photoSchema = new Schema({
 
 export const Photo = model<IPhoto>("Photo", photoSchema);
 
+
 export function createPhoto(data: Request): IPhoto {
+//Parsing the request should be decoupled from creating the document
   const {
     body: { title, description },
     file: { path },
