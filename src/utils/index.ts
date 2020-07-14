@@ -1,10 +1,9 @@
 import {IAsync, Composable, IComposite, IPipeline } from "./declarations";
-// 
-
 
 //Utility functions
 
-//Functions are named to keep track of them in error messages. Underscore is used to denote inner functions.
+//Functions are named to keep track of them in error messages. 
+//Underscore is used to denote inner functions.
 
 //Should there be different ways to respond to an error?
 export function handleAsync<F extends Function>(fn: F): IAsync {
@@ -38,32 +37,3 @@ export function pipe<T extends any[]>(...fns: Composable<T>): IPipeline<T> {
 }
 
 
-  function sum1(x: number) {
-  return x + 1;
-}
-function mult3(x: number) {
-  return x * 3;
-}
-function log(x: number): string {
-  return `${x}`;
-} 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Compiler should catch inconsistensies between 
-//parameters and return types between functions in the middle of the argument array
-const test = compose( sum1, sum1, mult3)
-const pipeTest = pipe(mult3, sum1, sum1)
-test(1) 
-pipeTest(1)
