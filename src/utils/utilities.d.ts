@@ -18,10 +18,7 @@ type Last<T extends any[]> = {
   1: Head<T>;
 }[HasTail<T> extends true ? 0 : 1];
 
-type Message<T> = {
-    0: "Everything's fine";
-    1: "That's a bullshit type";
-}[T extends true ? 0 : 1]
+
 
 
 type Length<T extends any[]> = T["length"];
@@ -123,11 +120,9 @@ function nothing() {
 type Ok = [typeof mult3, typeof sum1, typeof sum1, typeof mult3];
 type notOk = [typeof log, typeof nothing, typeof sum1, typeof mult3];
 // type notOk = [typeof log, typeof sum1, typeof nothing, typeof mult3];
-type test16 = Reverse<notOk>
 
 type FunctionInfer<F> = F extends (...args: infer A) => infer R ? [A, R] : never
-type TestMapParams = Tail<MapParams<isOk>>;
-type TestMapReturns = Reverse<Tail<Reverse<MapReturns<isOk>>>>
+
 // type TestMapParams2 = Drop<1, MapParams<isOk>>
 // type TestMapParams3 = Reverse<MapParams<isOk>>;
 
