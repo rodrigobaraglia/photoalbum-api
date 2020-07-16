@@ -1,6 +1,9 @@
-import { Schema, model} from "mongoose";
-import { IPhoto, IAlbum } from "./declarations";
+import { Schema, model } from "mongoose";
+import { IPhoto } from "./declarations";
 import { Request } from "express";
+import { validateProps, validateDocument } from "../validation";
+import { parseBody, getFilePath } from "../services/body.handler";
+import {IStruct} from "../utils"
 
 export const photoSchema = new Schema({
   title: String,
@@ -8,23 +11,21 @@ export const photoSchema = new Schema({
   path: String,
 });
 
+export const Model = model<IPhoto>("Photo", photoSchema);
 
+const photoMetadata = parseBody("title", "description");
 
-export const Photo = model<IPhoto>("Photo", photoSchema);
+const photoPropsCheck = validateProps("title", "description", "path");
 
+function extractPhotoData(data: Request) {
+  return { ...photoMetadata(data), ...getFilePath(data) };
+}
 
 export function createPhoto(data: Request): IPhoto {
-//Parsing the request should be decoupled from creating the document
-  const {
-    body: { title, description },
-    file: { path },
-  } = data;
-
-  const photo = new Photo({
-    title,
-    description,
-    path: path,
-  });
-
-  return photo;
+  return new Model(extractPhotoData(data));
 }
+
+export function factory(data: Request): IStruct<IPhoto> | void {
+  return validateDocument(photoPropsCheck(createPhoto(data)));
+}
+

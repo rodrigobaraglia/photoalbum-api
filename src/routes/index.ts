@@ -1,4 +1,4 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
 import * as path from "./constants";
 import { handleTestRoute } from "../controllers";
 import multer from "../libs/multer";
@@ -15,7 +15,7 @@ router.route(path.PHOTO_BY_ID).get(controller.getPhotosHandler);
 router
   .route(path.USERS)
   .get(controller.getUsersHandler)
-  .post(controller.createUserHandler);
+  .post(multer.single("avatar"),controller.createUserHandler);
 router.route(path.USER_PHOTOS);
 router.route(path.USER_PHOTO_BY_ID);
 router.route(path.USER_POSTS);
