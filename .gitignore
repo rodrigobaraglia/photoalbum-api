@@ -6,3 +6,5 @@
 # production
 /dist
 
+#Env
+.env
