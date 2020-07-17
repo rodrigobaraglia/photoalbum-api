@@ -19,18 +19,19 @@ const userSchema = new Schema({
 
 export const Model = model<IUser>("User", userSchema);
 
+const propKeys = {
+  pathAlias: "avatar_path",
+  other: ["name", "age", "password"],
+};
+
 const userPropsCheck: <T>(item: T) => Validated<T> = validateProps(
-  "name",
-  "age",
-  "password",
-  "avatar_path"
+  propKeys.pathAlias,
+  ...propKeys.other
 );
 
 const extractUserData: (req: Request) => Data = parseForm(
-  "avatar_path",
-  "name",
-  "age",
-  "password"
+  propKeys.pathAlias,
+  ...propKeys.other
 );
 
 function createUser(data: Data) {

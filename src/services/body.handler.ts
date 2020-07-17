@@ -15,13 +15,13 @@ export function getFilePath(req: Request) {
   return { path: req.file.path };
 }
 
-export function parseForm(fileProp: string, ...props: string[]) {
+export function parseForm(pathAlias: string, ...props: string[]) {
   return function _parseForm(req: Request) {
     const body = parseBody(...props);
     const file = getFilePath(req);
     
     return validateProps("file")(req)
-      ? { ...body(req), [fileProp]: file.path }
+      ? { ...body(req), [pathAlias]: file.path }
       : bodyPropsError(["file"], req);
   };
 }

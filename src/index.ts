@@ -37,7 +37,7 @@ function objStr(obj: {str: string, num:number, bool: boolean, numArr: number[]})
 const test0 = (s:string) => objStr(arrStrObj(boolArrStr(numBool(strNum(s)))))
 
 const _test1 = (s:string) => compose(objStr,arrStrObj, boolArrStr, numBool, strNum)(s)
-// const _test1b = compose(strNum, numBool, boolArrStr, arrStrObj, objStr)
+//  const _test1b = compose(strNum, numBool, boolArrStr, arrStrObj, objStr)
 _test1("start")
 // _test1b("start")
 const _test2= pipe(strNum, numBool, boolArrStr, arrStrObj, objStr)

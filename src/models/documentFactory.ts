@@ -16,12 +16,3 @@ export function documentFactory<T, S>(
     };
   }
   
-export class DocumentFactory {
-    create: any
-     constructor(extractor: any, creator: any, propsCheck:any ){
-
-         this.create = function _create<S>(data: Request):IStruct<S> | void {
-            return validateDocument(propsCheck(creator(extractor(data))));
-          };
-        }
-     }
