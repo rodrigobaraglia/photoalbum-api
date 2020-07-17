@@ -11,7 +11,7 @@ export type Pipeable<T> = Composibility<T> extends true ? T : never;
 export type Composable<T> = Composibility<Reverse<T>> extends true ? T : never
 
 
-export interface IComposite<T extends any[]> {
+export interface IComposite<T> {
   <U extends Parameters<Last<T>>, S extends ReturnType<Head<T>>>(...args: U): S;
 }
 

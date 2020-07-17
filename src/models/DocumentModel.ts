@@ -11,6 +11,7 @@ import { IStruct } from "../utils";
 type DefinedEntity = IPhoto | IUser | IAlbum | IComment;
 type Entity = DefinedEntity | unknown;
 
+
 class DocumentModel {
   schema: Schema;
   Model: Model<any>;
@@ -46,6 +47,7 @@ class DocumentModel {
       this.propsCheck
     );
   }
+ 
 }
 
 const Photo = new DocumentModel(
@@ -60,4 +62,3 @@ const Photo = new DocumentModel(
   "description"
 );
 
-Photo.factory;
